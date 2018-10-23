@@ -69,6 +69,14 @@ names(data) <- gsub("mean\\.\\.", "Mean", names(data))
 names(data) <- gsub("std\\.\\.", "Std", names(data))
 names(data) <- gsub("\\.", "", names(data))
 
+# Some variable names repeat body unnecessarily. Fixing that here. 
+data <- rename(data, fBodyAccJerkMagMean = fBodyBodyAccJerkMagMean, 
+               fBodyAccJerkMagStd = fBodyBodyAccJerkMagStd, 
+               fBodyGyroMagMean = fBodyBodyGyroMagMean,
+               fBodyGyroMagStd = fBodyBodyGyroMagStd,
+               fBodyGyroJerkMagMean = fBodyBodyGyroJerkMagMean,
+               fBodyGyroJerkMagStd = fBodyBodyGyroJerkMagStd)
+
 # 5. From the data set in step 4, creates a second, independent tidy data set 
 #    with the average of each variable for each activity and each subject.
 #
