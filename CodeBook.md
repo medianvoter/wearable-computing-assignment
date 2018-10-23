@@ -3,7 +3,7 @@
 Data originally from [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
 ## Brief Description of Data Set
-Thirty volunteers performed six activities wearing a Samusung Galaxy S II smartphone on the waist. Researchers captured 3-axial linear acceleration and angular velocity using the phone's accelerometer and gyroscope. Please see the [original website] (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) for more details. 
+Thirty volunteers performed six activities wearing a Samusung Galaxy S II smartphone on the waist. Researchers captured 3-axial linear acceleration and angular velocity using the phone's accelerometer and gyroscope. Please see the [original website](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) for more details. 
 
 ## Variable Descriptions
 Name | Class | Description
