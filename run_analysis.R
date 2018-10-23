@@ -2,6 +2,7 @@
 # Peer-graded assignment
 
 library(dplyr)
+library(plyr)
 library(tidyr)
 library(reshape2)
 
@@ -80,15 +81,9 @@ data <- rename(data, fBodyAccJerkMagMean = fBodyBodyAccJerkMagMean,
 # 5. From the data set in step 4, creates a second, independent tidy data set 
 #    with the average of each variable for each activity and each subject.
 #
-# Using reshape2 and tidyr to create the new tiny data set. Using group_by and
-# summarise is a possibility but it takes more programmer time.  
-tinyData <- melt(data, id = c("subject", "activity"), 
-                 measure.vars = names(data)[-(1:2)])
-tinyData <- mutate(tinyData, subject_activity = paste0(subject, "_", activity))
-tinyData <- dcast(tinyData, subject_activity ~ variable, mean)
-tinyData <- separate(tinyData, col = subject_activity, c("subject", "activity"))
-tinyData$subject <- as.numeric(tinyData$subject)
-tinyData <- arrange(tinyData, subject, activity)
+# Creating a dataset with one observation per subject-activity pair, in which
+# the values are the means of all values for that subject-activity.
+tinyData <- ddply(data, .(subject, activity), function(x) {colMeans(x[3:68])})
 write.table(tinyData, file = "tinyData.txt", row.names = FALSE)
 
 # Reading the table to check if it works. 
